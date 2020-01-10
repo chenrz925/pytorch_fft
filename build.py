@@ -1,6 +1,11 @@
 import os
 import torch
-from torch.utils.ffi import create_extension
+from pkg_resources import parse_version as version
+
+if version(torch.__version__) > version('1.0.1'):
+    from torch.utils.cpp_extension import BuildExtension as create_extension
+else:
+    from torch.utils.ffi import create_extension
 
 this_file = os.path.dirname(__file__)
 
@@ -25,7 +30,7 @@ ffi = create_extension(
     relative_to=__file__,
     with_cuda=with_cuda,
     include_dirs=[os.getcwd() + '/pytorch_fft/src'],
-    library_dirs=['/usr/local/cuda/lib64'], 
+    library_dirs=['/usr/local/cuda/lib64'],
     libraries=['cufft']
 )
 

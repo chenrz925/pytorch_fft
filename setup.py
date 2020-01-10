@@ -8,12 +8,12 @@ import build
 this_file = os.path.dirname(__file__)
 
 setup(
-    name="pytorch_fft",
+    name="pytorch_fft_waterch",
     version="0.15",
-    description="A PyTorch wrapper for CUDA FFTs",
-    url="https://github.com/locuslab/pytorch_fft",
-    author="Eric Wong",
-    author_email="ericwong@cs.cmu.edu",
+    description="A PyTorch wrapper for CUDA FFTs modified by Runze Chen to adapt PyTorch upper than 1.0.1",
+    url="https://github.com/chenrz925/pytorch_fft",
+    author="Runze Chen",
+    author_email="chen.runze@ieee.org",
     # Require cffi.
     install_requires=["cffi>=1.0.0"],
     setup_requires=["cffi>=1.0.0"],
